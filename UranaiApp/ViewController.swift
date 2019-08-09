@@ -8,10 +8,9 @@
 
 import UIKit
 
-// PickerViewを使うために、2つのプロトコル(UIPickerViewDelegate,UIPickerViewDataSource)を追加
 class ViewController: UIViewController {
     
-    // 紐付け一覧
+    // ★紐付け一覧
     // 誕生日を入力するPickerViewを紐付け
     @IBOutlet weak var birthDayPickerView: UIPickerView!
     
@@ -21,22 +20,25 @@ class ViewController: UIViewController {
     
     // Sliderから好きな数字を選ぶとSliderの下のラベルに数字が反映される
     @IBAction func likeNum(_ sender: UISlider) {
-        // 下のラベル(showNum)に文字を反映させる処理を書く(Int型→Srting型にキャストもする)
-        showNum.text = String(sender.value)
+        // 下のラベル(showNum)に文字を反映させる処理を書く
+         // sender.valueの初期値はDouble型なのでInt型へキャストする
+         let likeNum = Int(sender.value)
+         // textに代入するためにSrting型にキャストする
+         showNum.text = String(likeNum)
         
     }
     
-    
-    
     // Sliderで選んだ数字を表示させるラベルを紐付け
     @IBOutlet weak var showNum: UILabel!
-    
     
     // 占い結果を表示するTextViewの紐付け
     @IBOutlet weak var result: UITextView!
     
     
-    //   それぞれにデータを並列させる
+    
+    
+    //  ★各選択肢の占い結果を配列で定義
+    // 誕生日の選択結果
     let pickerResult : [String] = [
         "あなたは山に愛されています。\n",
         "あなたは海に愛されています。\n",
@@ -44,7 +46,7 @@ class ViewController: UIViewController {
         "あなたは森に愛されています。\n"
     ]
     
-    
+    // 血液型の選択結果
     let bloodResult : [String] = [
         "属性は「雷」です。\n",
         "属性は「水」です。\n",
@@ -52,6 +54,7 @@ class ViewController: UIViewController {
         "属性は「草」です。\n"
     ]
     
+    // 好きな数字の選択結果
     let likeNumResult: [String] = [
         "努力が報われなかったときは、「自分へのごほうび」とつぶやきながら、ひと口サイズのスイーツを口にして。",
         "探し物を思い浮かべながら、人差し指を7回反時計回りにまわしてみて。",
@@ -62,7 +65,7 @@ class ViewController: UIViewController {
     
     
     
-    
+    // 画面が読み込まれたときの処理
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
