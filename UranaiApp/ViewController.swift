@@ -68,18 +68,18 @@ class ViewController: UIViewController {
     
     // birthDayPickerViewの選択結果を取り出して変数に代入する(returnするので、戻り値の型指定も忘れないこと!!)
     fileprivate func setPicker() -> Int{
-        // まず、birthDayPickerViewの全てのデータを格納
+        // まず、birthDayPickerViewの全てのデータを格納する(PickerViewの紐付け時に型をUIDatePicker!にすること)
         let date = birthDayPickerView.date
         
-        // calandar.componentで定義したdateから必要なデータ(年・月・日)を取り出す
+        // calandar.componentで上記で定義した定数dateから必要なデータ(年・月・日)を取り出す
         let year = birthDayPickerView.calendar.component(.year, from: date)
         let month = birthDayPickerView.calendar.component(.month, from: date)
         let day = birthDayPickerView.calendar.component(.day, from: date)
         
-        // 占い結果に使うため、割った余りを定数に格納
-        let resultKey: Int = (year + month + day) % 4
+        // 占い結果(に使うため、4で割った余りを定数に格納
+        let pickerKey: Int = (year + month + day) % 4
         
-        return resultKey
+        return pickerKey
     }
     
     
