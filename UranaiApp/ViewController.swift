@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     // ★紐付け一覧
     // 誕生日を入力するPickerViewを紐付け
-    @IBOutlet weak var birthDayPickerView: UIPickerView!
+    @IBOutlet weak var birthDayPickerView: UIDatePicker!
     
     // 血液型を選択するSegmentControllを紐付け
     @IBOutlet weak var bloodType: UISegmentedControl!
@@ -63,6 +63,24 @@ class ViewController: UIViewController {
     ]
     
     
+    
+    // ★関数
+    
+    // birthDayPickerViewの選択結果を取り出して変数に代入する(returnするので、戻り値の型指定も忘れないこと!!)
+    fileprivate func setPicker() -> Int{
+        // まず、birthDayPickerViewの全てのデータを格納
+        let date = birthDayPickerView.date
+        
+        // calandar.componentで定義したdateから必要なデータ(年・月・日)を取り出す
+        let year = birthDayPickerView.calendar.component(.year, from: date)
+        let month = birthDayPickerView.calendar.component(.month, from: date)
+        let day = birthDayPickerView.calendar.component(.day, from: date)
+        
+        // 占い結果に使うため、割った余りを定数に格納
+        let resultKey: Int = (year + month + day) % 4
+        
+        return resultKey
+    }
     
     
     // 画面が読み込まれたときの処理
