@@ -66,7 +66,7 @@ class ViewController: UIViewController {
     
     // ★関数
     
-    // birthDayPickerViewの選択結果を取り出して変数に代入する(returnするので、戻り値の型指定も忘れないこと!!)
+    // birthDayPickerViewの選択結果を、占い結果を決めるkeyを戻り値として取得する(returnするので、戻り値の型指定も忘れないこと!!)
     fileprivate func setPicker() -> Int{
         // まず、birthDayPickerViewの全てのデータを格納する(PickerViewの紐付け時に型をUIDatePicker!にすること)
         let date = birthDayPickerView.date
@@ -76,11 +76,20 @@ class ViewController: UIViewController {
         let month = birthDayPickerView.calendar.component(.month, from: date)
         let day = birthDayPickerView.calendar.component(.day, from: date)
         
-        // 占い結果(に使うため、4で割った余りを定数に格納
+        // 占い結果(に使うため、4で割った余りを定数に格納(4パターンある)
         let pickerKey: Int = (year + month + day) % 4
         
         return pickerKey
     }
+    
+    // bloodTypeの選択の選択結果を、占い結果を決めるkeyを戻り値として取得する
+     fileprivate func setBlood() -> Int {
+        
+        // 占い結果(に使うため、bloodTypeのセグメントで選択されたインデックスを取得し、定数に格納(4パターンある)
+        let bloodKey: Int = bloodType.selectedSegmentIndex
+        return bloodKey
+    }
+    
     
     
     // 画面が読み込まれたときの処理
