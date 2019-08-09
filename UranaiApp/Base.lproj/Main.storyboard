@@ -149,7 +149,7 @@
                     </view>
                     <connections>
                         <outlet property="birthDayPickerView" destination="Akm-Dv-sew" id="jE8-Im-ipy"/>
-                        <outlet property="bloodType" destination="3lw-dF-MpZ" id="HQb-yM-FPe"/>
+                        <outlet property="bloodType" destination="3lw-dF-MpZ" id="g0H-yR-agO"/>
                         <outlet property="result" destination="hFk-I9-bqv" id="oh2-hU-3hx"/>
                         <outlet property="showNum" destination="ZAy-oZ-4Ya" id="oBg-Sy-dOa"/>
                     </connections>
