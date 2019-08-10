@@ -72,7 +72,7 @@ class ViewController: UIViewController {
     // 画面が読み込まれたときの処理
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
         
     }
     
@@ -97,7 +97,7 @@ class ViewController: UIViewController {
     // bloodTypeの選択の選択結果を、占い結果を決めるkeyに変換し、戻り値で取得する
      fileprivate func setBlood() -> Int {
         
-        // 占い結果(に使うため、bloodTypeのセグメントで選択されたインデックスを取得し、定数に格納(4パターンある)
+        // 占い結果に使うため、bloodTypeのセグメントで選択されたインデックスを取得し、定数に格納(4パターンある)
         let Key: Int = bloodType.selectedSegmentIndex
         return Key
     }
