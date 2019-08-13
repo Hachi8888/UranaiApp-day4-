@@ -78,7 +78,7 @@ class ViewController: UIViewController {
     
     // birthDayPickerViewの選択結果を、占い結果を決めるkeyに変換し、戻り値で取得する(returnするので、戻り値の型指定も忘れないこと!!)
     
-    fileprivate func setPicker() -> Int{
+    func setPicker() -> Int{
         // まず、birthDayPickerViewの全てのデータを格納する(PickerViewの紐付け時に型をUIDatePicker!にすること)
         let date = birthDayPicker.date
         
@@ -95,7 +95,7 @@ class ViewController: UIViewController {
     }
     
     // bloodTypeの選択の選択結果を、占い結果を決めるkeyに変換し、戻り値で取得する
-     fileprivate func setBlood() -> Int {
+      func setBlood() -> Int {
         
         // 占い結果に使うため、bloodTypeのセグメントで選択されたインデックスを取得し、定数に格納(4パターンある)
         let Key: Int = bloodType.selectedSegmentIndex
@@ -104,7 +104,7 @@ class ViewController: UIViewController {
     
     
      // Sliderから選んだ数字の選択結果を、占い結果を決めるkeyに変換し、戻り値で取得する
-    fileprivate func setLikeNum() -> Int {
+     func setLikeNum() -> Int {
 
         let Key: Int = sliderNum % 4
 
